@@ -11,14 +11,13 @@ class ChildComponent extends React.Component {
     }
     render(){
         console.log('>>> check props:',this.props)
-        let {firstName, lastName , age ,address ,arrJobs} = this.props;
+        let {arrJobs} = this.props;
         let {showJobs,} = this.state;
         let check = showJobs ===true ? 'showJobs === true ': 'showJobs === false';
         console.log('>>> check conditional:',check);
 
         return(
             <>
-                <div>Children component: {firstName}-{lastName} - {age} - {address}</div>
                 {showJobs === false ?
                 <div>
                     <button onClick = {()=> {this.handleShowHide()}}>show</button>
