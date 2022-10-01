@@ -9,6 +9,14 @@ class ChildComponent extends React.Component {
             showJobs: !this.state.showJobs
         });
     }
+    handleDeleteJob = (job) => {
+        console.log('>>> deleteJob:',job)
+        this.props.deleteAJob(job);
+    }
+
+    handleDeleteAll = () => {
+        console.log('>>> deleteAll:',)
+    }
     render(){
         console.log('>>> check props:',this.props)
         let {arrJobs} = this.props;
@@ -29,10 +37,12 @@ class ChildComponent extends React.Component {
                         {arrJobs.map((item,index)=>{
                             return(
                                 <div key={item.id}>
-                                    {item.title} - {item.salary} $
+                                    {item.title} - {item.salary}
+                                    <span onClick={()=> this.handleDeleteJob(item)}>&times;</span>
                                 </div>
                             )
                         })}
+                    
                     </div>
                     <div>
                         <button onClick = {()=> {this.handleShowHide()}}>hide</button>
