@@ -34,7 +34,13 @@ class MyComponent extends React.Component {
             })
         }
 
+        componentDidUpdate (prevProps, prevState) {
+            console.log('>>> run didupdate:', 'prev state :', prevState,'current:',this.state)
+        }
 
+        componentDidMount(){
+            console.log('>>> run component did mount');
+        }
 
     
     render(){
